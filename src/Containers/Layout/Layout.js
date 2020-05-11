@@ -9,9 +9,26 @@ import Output from '../../Components/Outputs/Output';
 class Layout extends Component {
     constructor() {
         super();
+        // all state should be here
         this.state = {
-            test: true
+            variableExpenses: [{
+                name: 'groceries',
+                min: 100,
+                max: 300,
+                value: 200
+            }]
         }
+    }
+
+    sliderHandler = (e) => {
+        console.log(e);
+        const newExp = {
+            name: 'groceries',
+            min: 100,
+            max: 300,
+            value: e.target.value
+        };
+        this.setState({variableExpenses: [newExp]});
     }
 
     render() {
@@ -27,7 +44,7 @@ class Layout extends Component {
                     </div>
 
                     <div className={classes.VariableExpenses}>
-                        <VariableExpenses></VariableExpenses>
+                        <VariableExpenses varExpenses={this.state.variableExpenses} sliderHandler={this.sliderHandler}></VariableExpenses>
                     </div>
                 </div>
 

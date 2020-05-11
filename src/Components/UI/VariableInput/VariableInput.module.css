@@ -1,0 +1,8 @@
+.VariableInput {
+    display: flex;
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+    width: 50%;
+    margin: 10px 10px;
+}

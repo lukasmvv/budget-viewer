@@ -1,0 +1,33 @@
+.Layout {
+    width: 100%;
+    height: 100%;
+}
+
+.Inputs {
+    width: 40%;
+    float: left;
+}
+
+.FixedIncome {
+    width: 100%;
+    height: 10%;
+    display: block;
+}
+
+.FixedExpenses {
+    width: 100%;
+    height: 10%;
+    display: block;
+}
+
+.VariableExpenses {
+    width: 100%;
+    height: 60%;
+    display: block;
+}
+
+
+.Outputs {
+    width: 55%;
+    float: right;
+}

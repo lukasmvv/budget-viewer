@@ -5,30 +5,27 @@ import FixedIncome from '../../Components/Inputs/FixedIncome/FixedIncome';
 import FixedExpenses from '../../Components/Inputs/FixedExpenses/FixedExpenses';
 import VariableExpenses from '../../Components/Inputs/VariableExpenses/VariableExpenses';
 import Output from '../../Components/Outputs/Output';
+import Expense from '../../Data/Expense';
 
 class Layout extends Component {
     constructor() {
         super();
         // all state should be here
         this.state = {
-            variableExpenses: [{
-                name: 'groceries',
-                min: 100,
-                max: 300,
-                value: 200
-            }]
+            variableExpenses: [new Expense('test1',0,100000,10,['dummy label1']), new Expense('test2',0,100000,50,['dummy label2'])]
         }
     }
 
-    sliderHandler = (e) => {
-        console.log(e);
-        const newExp = {
-            name: 'groceries',
-            min: 100,
-            max: 300,
-            value: e.target.value
-        };
-        this.setState({variableExpenses: [newExp]});
+    // handles slider input change for variable input
+    sliderHandler = (name, e) => {
+        const varExpenses = this.state.variableExpenses;
+        varExpenses.forEach((exp,i) => {
+            if (exp.name===name) {
+                exp.value = e.target.value;
+                return;
+            }
+        });
+        this.setState({variableExpenses: varExpenses});
     }
 
     render() {
@@ -44,7 +41,7 @@ class Layout extends Component {
                     </div>
 
                     <div className={classes.VariableExpenses}>
-                        <VariableExpenses varExpenses={this.state.variableExpenses} sliderHandler={this.sliderHandler}></VariableExpenses>
+                        <VariableExpenses variableExpenses={this.state.variableExpenses} sliderHandler={this.sliderHandler}></VariableExpenses>
                     </div>
                 </div>
 

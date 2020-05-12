@@ -8,7 +8,7 @@ const slider = (props) => (
         </div>
         <div className={classes.Mid}>
             <p>{props.min}</p>
-            <input type="range" min={props.min} max={props.max} value={props.value} step="1" onChange={props.sliderHandler}></input>
+            <input type="range" min={props.min} max={props.max} value={props.value} step="1" onChange={(e) => props.sliderHandler(props.name, e)}></input>
             <p>{props.max}</p>
         </div>      
     </div>

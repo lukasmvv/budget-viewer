@@ -1,0 +1,9 @@
+.CloseButton {
+    color: crimson;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.CloseButton:hover {
+    cursor: pointer;
+}

@@ -28,6 +28,21 @@ class Layout extends Component {
         this.setState({variableExpenses: varExpenses});
     }
 
+    closeButtonHandler = (name) => {
+        console.log(name);
+        
+        const varExpenses = this.state.variableExpenses;
+        let index = -1;
+        varExpenses.forEach((exp,i) => {
+            if (exp.name===name) {
+                index = i;
+                return;
+            }
+        });
+        varExpenses.splice(index,1);
+        this.setState({variableExpenses: varExpenses});
+    }
+
     render() {
         return (
             <div className={classes.Layout}>
@@ -41,7 +56,10 @@ class Layout extends Component {
                     </div>
 
                     <div className={classes.VariableExpenses}>
-                        <VariableExpenses variableExpenses={this.state.variableExpenses} sliderHandler={this.sliderHandler}></VariableExpenses>
+                        <VariableExpenses 
+                            variableExpenses={this.state.variableExpenses} 
+                            sliderHandler={this.sliderHandler}
+                            closeClickHandler={this.closeButtonHandler}></VariableExpenses>
                     </div>
                 </div>
 

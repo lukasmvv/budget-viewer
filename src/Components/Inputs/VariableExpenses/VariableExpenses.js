@@ -4,16 +4,13 @@ import Box from '../../../Components/UI/Box/Box';
 import VariableInput from '../../UI/VariableInput/VariableInput';
 import Element from '../../Element/Element';
 
-
-
 const variableExpenses = (props) => {
-    console.log(props);
     return (
         <Box heading={"Variable Expenses"}>
             <p>variable expenses</p>
             {props.variableExpenses.map((exp, i) => {
                 return (
-                    <Element key={i} name={exp.name} labels={exp.labels}>
+                    <Element key={i} name={exp.name} labels={exp.labels} closeClicked={props.closeClickHandler}>
                         <VariableInput 
                             name={exp.name} 
                             min={exp.min} 

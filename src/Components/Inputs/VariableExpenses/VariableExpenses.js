@@ -10,7 +10,7 @@ const variableExpenses = (props) => {
             <p>variable expenses</p>
             {props.variableExpenses.map((exp, i) => {
                 return (
-                    <Element key={i} name={exp.name} labels={exp.labels} closeClicked={props.closeClickHandler}>
+                    <Element key={i} name={exp.name} labels={exp.labels} closeClicked={props.closeClickHandler} type='varExp'>
                         <VariableInput 
                             name={exp.name} 
                             min={exp.min} 

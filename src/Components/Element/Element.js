@@ -13,7 +13,7 @@ const element = (props) => {
             {/* <p>(Test label)</p> */}
             <Labels labels={props.labels}></Labels>
             {props.children}
-            <CloseButton name={props.name} clicked={props.closeClicked}></CloseButton>
+            <CloseButton name={props.name} clicked={props.closeClicked} type={props.type}></CloseButton>
         </div>
     );
 };

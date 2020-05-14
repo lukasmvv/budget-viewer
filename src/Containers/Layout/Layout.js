@@ -24,7 +24,7 @@ class Layout extends Component {
         const varExpenses = this.state.variableExpenses;
         varExpenses.forEach((exp,i) => {
             if (exp.name===name) {
-                exp.value = e.target.value;
+                exp.value = parseFloat(e.target.value);
                 return;
             }
         });
@@ -37,7 +37,7 @@ class Layout extends Component {
             const fixedExpenses = this.state.fixedExpenses;
             fixedExpenses.forEach((exp,i) => {
                 if (exp.name===name) {
-                    exp.value = e.target.value;
+                    exp.value = parseFloat(e.target.value);
                     return;
                 }
             });
@@ -46,7 +46,7 @@ class Layout extends Component {
             const fixedIncomes = this.state.fixedIncomes;
             fixedIncomes.forEach((inc,i) => {
                 if (inc.name===name) {
-                    inc.value = e.target.value;
+                    inc.value = parseFloat(e.target.value);
                     return;
                 }
             });
@@ -125,7 +125,11 @@ class Layout extends Component {
                 </div>
 
                 <div className={classes.Outputs}>
-                    <Output></Output>
+                    <Output
+                        fixedIncomes={this.state.fixedIncomes}
+                        fixedExpenses={this.state.fixedExpenses}
+                        variableExpenses={this.state.variableExpenses}>                            
+                    </Output>
                 </div>
             </div>
         );
